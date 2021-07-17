@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from .models import Car, Rating
+from .utils import car_exists
 
 
 class CarSerializer(serializers.ModelSerializer):
@@ -9,6 +10,12 @@ class CarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Car
         fields = ['id', 'make', 'model', 'avg_rating']
+
+    def validate(self, data):
+        if car_exists(data['make'], data['model']):
+            return data
+        else:
+            raise serializers.ValidationError("That car doesn't exist. Please provide real car make and model name. ")
 
     def calculate_avg_rating(self, instance):
         ratings = Rating.objects.filter(car_id=instance.id).all()
