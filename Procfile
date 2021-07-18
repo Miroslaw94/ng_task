@@ -1,1 +1,1 @@
-web: gunicorn myproject.wsgi
+web: gunicorn ng_task.wsgi
