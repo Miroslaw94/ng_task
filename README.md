@@ -1,6 +1,8 @@
 # General information
 This is a recruitment task for python developer position. 
 
+Application is available online at https://ngtask.herokuapp.com/
+
 
 ## Installation and usage
 The easiest way to run this app is using Docker. Open terminal and go to the main directory of this project where you 
