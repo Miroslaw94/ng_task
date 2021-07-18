@@ -1,1 +1,1 @@
-web: gunicorn ng_task.ng_task.wsgi
+web: gunicorn --pythonpath ng_task ng_task.wsgi
